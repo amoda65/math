@@ -1,9 +1,11 @@
 
-const CACHE_NAME = 'math-magic-v1';
+const CACHE_NAME = 'math-magic-v2';
+const BASE_PATH = '/math/';
 const ASSETS_TO_CACHE = [
-  './',
-  './index.html',
-  './manifest.json'
+  BASE_PATH,
+  BASE_PATH + 'index.html',
+  BASE_PATH + 'manifest.json',
+  BASE_PATH + 'favicon.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -12,6 +14,7 @@ self.addEventListener('install', (event) => {
       return cache.addAll(ASSETS_TO_CACHE);
     })
   );
+  self.skipWaiting();
 });
 
 self.addEventListener('fetch', (event) => {
@@ -34,9 +37,8 @@ self.addEventListener('fetch', (event) => {
 
         caches.open(CACHE_NAME).then((cache) => {
           // Cache the new resource for future use
-          // We wrap this in a try-catch or just ignore errors for unsupported schemes (like chrome-extension://)
           if (event.request.url.startsWith('http')) {
-             cache.put(event.request, responseToCache);
+            cache.put(event.request, responseToCache);
           }
         });
 
@@ -59,4 +61,5 @@ self.addEventListener('activate', (event) => {
       );
     })
   );
+  self.clients.claim();
 });

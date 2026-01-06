@@ -1,20 +1,20 @@
-
 {
   "name": "دنیای جادویی جدول ضرب",
   "short_name": "جدول ضرب",
-  "start_url": "./index.html",
+  "start_url": "/math/",
+  "scope": "/math/",
   "display": "standalone",
   "background_color": "#fff5f7",
   "theme_color": "#ec4899",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/3965/3965108.png",
+      "src": "/math/favicon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/3965/3965108.png",
+      "src": "/math/favicon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
